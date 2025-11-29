@@ -78,4 +78,16 @@ setInterval(() => {
     moveCarousel(1);
 }, 10000);
 
+// Notes Toggle
+const notesTrigger = document.getElementById('notesTrigger');
+const notesContent = document.getElementById('notesContent');
+let notesOpened = false;
 
+notesTrigger.addEventListener('click', function() {
+    if (!notesOpened) {
+        notesContent.classList.add('show');
+        notesTrigger.style.cursor = 'default';
+        notesTrigger.style.opacity = '0.8';
+        notesOpened = true;
+    }
+});

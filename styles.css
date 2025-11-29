@@ -464,6 +464,54 @@ body {
     max-width: 600px;
     line-height: 1.8;
 }
+/* Notes Section */
+.notes-container {
+    margin-top: 40px;
+    max-width: 600px;
+}
+
+.notes-trigger {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #81334d, #bc3703);
+    color: rgb(255, 34, 34);
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.notes-trigger:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 107, 157, 0.4);
+}
+
+.notes-trigger:active {
+    transform: scale(0.98);
+}
+
+.notes-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    padding: 0 30px;
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.8;
+    background: rgba(255, 255, 255, 0.95); 
+    border-radius: 15px;
+    transition: all 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.notes-content.show {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 20px;
+    padding: 25px 30px;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
