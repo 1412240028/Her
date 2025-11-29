@@ -1,0 +1,7 @@
+- [x] Remove unnecessary smooth scroll code from script.js
+- [x] Launch browser to test the website at file:///d:/My Project/Web/Her/index.html
+- [x] Test envelope opening animation and confetti
+- [x] Test carousel navigation (prev/next buttons), indicators, and auto-play
+- [x] Test audio playback in music section
+- [x] Test responsive design on different screen sizes
+- [x] Fix any runtime errors or issues found during testing
