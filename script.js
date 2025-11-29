@@ -76,7 +76,7 @@ function updateCarousel() {
 // Auto-play carousel
 setInterval(() => {
     moveCarousel(1);
-}, 5000);
+}, 10000);
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
