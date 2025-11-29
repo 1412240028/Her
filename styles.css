@@ -319,14 +319,53 @@ body {
 
 /* Responsive untuk mobile */
 @media (max-width: 768px) {
-    .music-cards {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .envelope {
+        width: 150px;
+        height: 105px;
     }
 
-    .music-card:first-child {
-        grid-column: 1;
-        max-width: 100%;
+    .envelope-back {
+        width: 150px;
+        height: 105px;
+    }
+
+    .envelope-front {
+        border-left-width: 75px;
+        border-right-width: 75px;
+        border-bottom-width: 52.5px;
+    }
+
+    .letter {
+        width: 135px;
+        height: 150px;
+        top: 15px;
+        left: 7.5px;
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    .open-text {
+        font-size: 16px;
+        margin-top: 120px;
+    }
+
+    .hero h1 { font-size: 2.5em; }
+    .hero h2 { font-size: 1.8em; }
+    .hero p { font-size: 1.2em; }
+
+    .message-box {
+        padding: 30px 20px;
+        font-size: 1em;
+    }
+
+    .music-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .music-card {
+        padding: 20px;
     }
 
     .music-card h3 {
@@ -337,10 +376,152 @@ body {
         font-size: 0.95em;
     }
 
-    .hero h1 { font-size: 2.5em; }
-    .hero h2 { font-size: 1.8em; }
-    .message-box { padding: 30px; }
-    .carousel { height: 400px; }
+    .carousel {
+        height: 350px;
+        max-width: 90%;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .carousel-btn.prev {
+        left: 10px;
+    }
+
+    .carousel-btn.next {
+        right: 10px;
+    }
+
+    .closing h2 {
+        font-size: 2em;
+    }
+
+    .closing p {
+        font-size: 1.1em;
+        padding: 0 10px;
+    }
+
+    .notes-trigger {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+
+    .notes-content {
+        font-size: 1em;
+        padding: 20px 25px;
+    }
+}
+
+/* Responsive untuk very small screens */
+@media (max-width: 480px) {
+    .envelope {
+        width: 120px;
+        height: 84px;
+    }
+
+    .envelope-back {
+        width: 120px;
+        height: 84px;
+    }
+
+    .envelope-front {
+        border-left-width: 60px;
+        border-right-width: 60px;
+        border-bottom-width: 42px;
+    }
+
+    .letter {
+        width: 108px;
+        height: 120px;
+        top: 12px;
+        left: 6px;
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .open-text {
+        font-size: 14px;
+        margin-top: 100px;
+    }
+
+    .hero h1 { font-size: 2em; }
+    .hero h2 { font-size: 1.5em; }
+    .hero p { font-size: 1em; }
+
+    .message-box {
+        padding: 20px 15px;
+        font-size: 0.9em;
+    }
+
+    .music-section h2 {
+        font-size: 2.5em;
+    }
+
+    .music-intro {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+
+    .music-cards {
+        gap: 15px;
+        padding: 0 5px;
+    }
+
+    .music-card {
+        padding: 15px;
+    }
+
+    .music-card h3 {
+        font-size: 1.3em;
+    }
+
+    .music-card p {
+        font-size: 0.9em;
+    }
+
+    .carousel {
+        height: 300px;
+        max-width: 95%;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .carousel-btn.prev {
+        left: 5px;
+    }
+
+    .carousel-btn.next {
+        right: 5px;
+    }
+
+    .gallery-section h2 {
+        font-size: 2.5em;
+    }
+
+    .closing h2 {
+        font-size: 1.8em;
+    }
+
+    .closing p {
+        font-size: 1em;
+    }
+
+    .notes-trigger {
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
+
+    .notes-content {
+        font-size: 0.9em;
+        padding: 15px 20px;
+    }
 }
 
 /* Gallery Section */
@@ -513,11 +694,4 @@ body {
     padding: 25px 30px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.5em; }
-    .hero h2 { font-size: 1.8em; }
-    .message-box { padding: 30px; }
-    .music-cards { flex-direction: column; }
-    .carousel { height: 400px; }
-}
+

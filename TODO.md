@@ -1,7 +1,10 @@
-- [x] Remove unnecessary smooth scroll code from script.js
-- [x] Launch browser to test the website at file:///d:/My Project/Web/Her/index.html
-- [x] Test envelope opening animation and confetti
-- [x] Test carousel navigation (prev/next buttons), indicators, and auto-play
-- [x] Test audio playback in music section
-- [x] Test responsive design on different screen sizes
-- [x] Fix any runtime errors or issues found during testing
+- [ ] Remove duplicate media query at the end of styles.css
+- [ ] Enhance @media (max-width: 768px) for better mobile responsiveness
+- [ ] Add new @media (max-width: 480px) for very small screens
+- [ ] Adjust envelope size and letter for mobile
+- [ ] Further reduce hero font sizes and adjust spacing
+- [ ] Improve message-box padding and font sizes
+- [ ] Ensure music-cards are properly responsive (fix grid)
+- [ ] Make carousel more mobile-friendly (buttons, height)
+- [ ] Add responsive styles for closing section and notes
+- [ ] Test responsiveness by running local server
