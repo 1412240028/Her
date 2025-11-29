@@ -1,0 +1,445 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Segoe UI', serif;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #FFE5E5 0%, #FFF0E5 50%, #F5E6FF 100%);
+}
+
+/* Opening Animation */
+#opening {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #FFB6B9 0%, #FEC8D8 50%, #FFDFD3 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease;
+}
+
+#opening.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.envelope {
+    width: 200px;
+    height: 140px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.envelope:hover {
+    transform: scale(1.1);
+}
+
+.envelope-back {
+    width: 200px;
+    height: 140px;
+    background: #FFDFD3;
+    border-radius: 10px;
+    border: 3px solid #FFB6B9;
+}
+
+.envelope-front {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 70px solid #FFE5E5;
+    top: 0;
+    left: 0;
+    transform-origin: top;
+    transition: transform 0.6s ease;
+}
+
+.envelope.open .envelope-front {
+    transform: rotateX(180deg);
+}
+
+.letter {
+    position: absolute;
+    width: 180px;
+    height: 200px;
+    background: white;
+    top: 20px;
+    left: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.8s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #FF6B9D;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+.envelope.open .letter {
+    transform: translateY(-150px);
+}
+
+.open-text {
+    margin-top: 180px;
+    color: white;
+    font-size: 20px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Confetti */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #FF6B9D;
+    position: absolute;
+    animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Main Content */
+#main-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+#main-content.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 4em;
+    color: #FF6B9D;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease;
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    color: #FFA07A;
+    margin-bottom: 10px;
+    animation: fadeInUp 1s ease 0.3s backwards;
+}
+
+.hero p {
+    font-size: 1.5em;
+    color: #C98EAF;
+    animation: fadeInUp 1s ease 0.6s backwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Message Section */
+.message-section {
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-box {
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    line-height: 1.8;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.message-box p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.signature {
+    text-align: right;
+    font-style: italic;
+    color: #FF6B9D;
+    margin-top: 30px;
+    font-size: 1.2em;
+}
+
+/* Music Section */
+.music-section {
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.music-section h2 {
+    font-size: 3em;
+    color: #FF6B9D;
+    margin-bottom: 30px;
+}
+
+.music-intro {
+    max-width: 700px;
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 50px;
+    line-height: 1.8;
+}
+
+.music-cards {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.music-card {
+    width: 350px;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.music-card:hover {
+    transform: translateY(-10px);
+}
+
+.music-card h3 {
+    color: #FFA07A;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.music-card p {
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.music-player {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.play-btn {
+    background: linear-gradient(135deg, #FF6B9D, #FFA07A);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255,107,157,0.4);
+}
+
+.youtube-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: linear-gradient(135deg, #FF0000, #CC0000);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+}
+
+.youtube-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+}
+
+/* Gallery Section */
+.gallery-section {
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-section h2 {
+    font-size: 3em;
+    color: #FF6B9D;
+    margin-bottom: 50px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.8);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev {
+    left: 20px;
+}
+
+.carousel-btn.next {
+    right: 20px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Closing Section */
+.closing {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.closing h2 {
+    font-size: 2.5em;
+    color: #FF6B9D;
+    margin-bottom: 20px;
+}
+
+.closing p {
+    font-size: 1.3em;
+    color: #C98EAF;
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5em; }
+    .hero h2 { font-size: 1.8em; }
+    .message-box { padding: 30px; }
+    .music-cards { flex-direction: column; }
+    .carousel { height: 400px; }
+}
