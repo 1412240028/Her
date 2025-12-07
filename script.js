@@ -2,22 +2,35 @@
 const envelope = document.getElementById('envelope');
 const opening = document.getElementById('opening');
 const mainContent = document.getElementById('main-content');
+const reminderModal = document.getElementById('reminderModal');
 
 envelope.addEventListener('click', function() {
     envelope.classList.add('open');
-    
-    // Create confetti
-    for(let i = 0; i < 100; i++) {
-        setTimeout(() => {
-            createConfetti();
-        }, i * 30);
-    }
 
-    // Hide opening and show content
+    // Hide opening and show reminder modal (NO CONFETTI YET)
     setTimeout(() => {
         opening.classList.add('hidden');
+        
+        // Show reminder modal after opening is hidden
         setTimeout(() => {
-            mainContent.classList.add('show');
+            reminderModal.classList.add('show');
+            
+            // Auto hide reminder modal after 7 seconds
+            setTimeout(() => {
+                reminderModal.classList.remove('show');
+                
+                // NOW CREATE CONFETTI after modal is gone
+                for(let i = 0; i < 100; i++) {
+                    setTimeout(() => {
+                        createConfetti();
+                    }, i * 30);
+                }
+                
+                // Show main content after modal fades out
+                setTimeout(() => {
+                    mainContent.classList.add('show');
+                }, 500);
+            }, 7000);
         }, 500);
     }, 2000);
 });
