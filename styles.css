@@ -662,7 +662,7 @@ body {
 }
 
 .notes-content.show {
-    max-height: 300px;
+    max-height: 600px;
     opacity: 1;
     margin-top: 20px;
     padding: 25px 30px;
