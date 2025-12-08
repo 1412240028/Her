@@ -119,6 +119,7 @@ body {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
+    padding: 0 20px;
 }
 
 .reminder-modal.show {
@@ -154,48 +155,44 @@ body {
     margin-bottom: 15px;
 }
 
-.reminder-content p:last-child {
+.reminder-content p:last-of-type {
     margin-bottom: 0;
 }
 
 .reminder-thanks {
-    margin-top: 25px;
+    margin-top: 25px !important;
     font-style: italic;
     color: #FF6B9D;
     font-size: 1.2em !important;
+    margin-bottom: 30px !important;
 }
 
-/* Responsive Reminder Modal */
-@media (max-width: 768px) {
-    .reminder-content {
-        padding: 35px 30px;
-        max-width: 85%;
-    }
-    
-    .reminder-content p {
-        font-size: 1.1em;
-    }
-    
-    .reminder-thanks {
-        font-size: 1.1em !important;
-    }
+/* Continue Button */
+.continue-button {
+    margin-top: 30px;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, #FF6B9D, #FFA07A);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+    transition: all 0.3s ease;
+    min-height: 56px;
+    min-width: 250px;
+    font-family: 'Georgia', 'Segoe UI', serif;
 }
 
-@media (max-width: 480px) {
-    .reminder-content {
-        padding: 25px 20px;
-        max-width: 90%;
-    }
-    
-    .reminder-content p {
-        font-size: 0.95em;
-        margin-bottom: 12px;
-    }
-    
-    .reminder-thanks {
-        font-size: 1em !important;
-        margin-top: 18px;
-    }
+.continue-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 107, 157, 0.5);
+}
+
+.continue-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
 }
 
 /* Confetti */
@@ -206,6 +203,8 @@ body {
     background: #FF6B9D;
     position: absolute;
     animation: fall 3s linear infinite;
+    pointer-events: none;
+    z-index: 9998;
 }
 
 @keyframes fall {
@@ -293,6 +292,8 @@ body {
     text-align: center;
     display: block;
     margin: 0 auto 35px auto;
+    font-size: 2.2em;
+    color: #FF6B9D;
 }
 
 .message-box {
@@ -346,7 +347,7 @@ body {
 
 .music-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
     max-width: 1200px;
     width: 100%;
@@ -379,6 +380,7 @@ body {
     margin-bottom: 20px;
     flex-grow: 1;
     text-align: justify;
+    font-size: 1em;
 }
 
 .music-player {
@@ -387,243 +389,97 @@ body {
     margin-bottom: 15px;
 }
 
-.youtube-link {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #FF0000, #CC0000);
+/* Lyrics Toggle Button */
+.lyrics-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #FF6B9D, #FFA07A);
     color: white;
-    text-decoration: none;
+    border: none;
     border-radius: 25px;
-    font-size: 0.9em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
     transition: all 0.3s ease;
-    text-align: center;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+    min-height: 48px;
+    font-family: 'Georgia', 'Segoe UI', serif;
 }
 
-.youtube-link:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+.lyrics-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
 }
 
-/* Responsive untuk tablet */
-@media (max-width: 1024px) {
-    .music-cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .music-card:first-child {
-        grid-column: 1 / -1;
-        max-width: 500px;
-        margin: 0 auto;
-    }
+.lyrics-toggle:active {
+    transform: translateY(0);
 }
 
-/* Responsive untuk mobile */
-@media (max-width: 768px) {
-    .envelope {
-        width: 140px;
-        height: 98px;
-    }
-
-    .envelope-back {
-        width: 140px;
-        height: 98px;
-    }
-
-    .envelope-front {
-        border-left-width: 70px;
-        border-right-width: 70px;
-        border-bottom-width: 49px;
-    }
-
-    .letter {
-        width: 126px;
-        height: 140px;
-        top: 14px;
-        left: 7px;
-        font-size: 13px;
-        padding: 12px;
-    }
-
-    .open-text {
-        font-size: 15px;
-        margin-top: 110px;
-    }
-
-    .hero h1 { font-size: 2.2em; margin-bottom: 15px; }
-    .hero h2 { font-size: 1.6em; margin-bottom: 8px; }
-    .hero p { font-size: 1.1em; }
-
-    .message-box {
-        padding: 25px 15px;
-        font-size: 0.95em;
-    }
-
-    .music-cards {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 0 5px;
-    }
-
-    .music-card {
-        padding: 15px;
-    }
-
-    .music-card h3 {
-        font-size: 1.4em;
-    }
-
-    .music-card p {
-        font-size: 0.9em;
-    }
-
-    .carousel {
-        height: 320px;
-        max-width: 95%;
-    }
-
-    .carousel-btn {
-        width: 38px;
-        height: 38px;
-        font-size: 18px;
-    }
-
-    .carousel-btn.prev {
-        left: 8px;
-    }
-
-    .carousel-btn.next {
-        right: 8px;
-    }
-
-    .closing h2 {
-        font-size: 1.8em;
-    }
-
-    .closing p {
-        font-size: 1em;
-        padding: 0 5px;
-    }
-
-    .notes-trigger {
-        font-size: 0.95em;
-        padding: 10px 22px;
-    }
-
-    .notes-content {
-        font-size: 0.95em;
-        padding: 18px 22px;
-    }
+.lyrics-toggle .icon {
+    font-size: 0.9em;
+    transition: transform 0.3s ease;
 }
 
-/* Responsive untuk very small screens */
-@media (max-width: 480px) {
-    .envelope {
-        width: 110px;
-        height: 77px;
-    }
+.lyrics-toggle.active .icon {
+    transform: rotate(180deg);
+}
 
-    .envelope-back {
-        width: 110px;
-        height: 77px;
-    }
+/* Lyrics Box */
+.lyrics-box {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-top: 0;
+}
 
-    .envelope-front {
-        border-left-width: 55px;
-        border-right-width: 55px;
-        border-bottom-width: 38.5px;
-    }
+.lyrics-box.show {
+    max-height: 500px;
+    margin-top: 20px;
+}
 
-    .letter {
-        width: 99px;
-        height: 110px;
-        top: 11px;
-        left: 5.5px;
-        font-size: 11px;
-        padding: 8px;
-    }
+.lyrics-content {
+    background: linear-gradient(135deg, #FFE5E5 0%, #FFF0E5 100%);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(255, 107, 157, 0.2);
+    max-height: 400px;
+    overflow-y: auto;
+    text-align: left;
+}
 
-    .open-text {
-        font-size: 13px;
-        margin-top: 90px;
-    }
+.lyrics-content p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
 
-    .hero h1 { font-size: 1.8em; margin-bottom: 12px; }
-    .hero h2 { font-size: 1.3em; margin-bottom: 6px; }
-    .hero p { font-size: 0.9em; }
+.lyrics-content p strong {
+    color: #FF6B9D;
+    font-weight: 600;
+}
 
-    .message-box {
-        padding: 18px 12px;
-        font-size: 0.85em;
-    }
+/* Scrollbar Styling */
+.lyrics-content::-webkit-scrollbar {
+    width: 8px;
+}
 
-    .music-section h2 {
-        font-size: 2.2em;
-    }
+.lyrics-content::-webkit-scrollbar-track {
+    background: rgba(255, 182, 185, 0.2);
+    border-radius: 10px;
+}
 
-    .music-intro {
-        font-size: 0.95em;
-        margin-bottom: 25px;
-    }
+.lyrics-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #FF6B9D, #FFA07A);
+    border-radius: 10px;
+}
 
-    .music-cards {
-        gap: 12px;
-        padding: 0 3px;
-    }
-
-    .music-card {
-        padding: 12px;
-    }
-
-    .music-card h3 {
-        font-size: 1.2em;
-    }
-
-    .music-card p {
-        font-size: 0.85em;
-    }
-
-    .carousel {
-        height: 260px;
-        max-width: 95%;
-    }
-
-    .carousel-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 16px;
-    }
-
-    .carousel-btn.prev {
-        left: 3px;
-    }
-
-    .carousel-btn.next {
-        right: 3px;
-    }
-
-    .gallery-section h2 {
-        font-size: 2.2em;
-    }
-
-    .closing h2 {
-        font-size: 1.6em;
-    }
-
-    .closing p {
-        font-size: 0.9em;
-        padding: 0 3px;
-    }
-
-    .notes-trigger {
-        font-size: 0.85em;
-        padding: 8px 18px;
-    }
-
-    .notes-content {
-        font-size: 0.85em;
-        padding: 12px 18px;
-    }
+.lyrics-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #FFA07A, #FF6B9D);
 }
 
 /* Gallery Section */
@@ -681,11 +537,16 @@ body {
     border: none;
     width: 50px;
     height: 50px;
+    min-width: 50px;
+    min-height: 50px;
     border-radius: 50%;
     font-size: 24px;
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-btn:hover {
@@ -708,11 +569,17 @@ body {
     transform: translateX(-50%);
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 90%;
+    padding: 10px;
 }
 
 .indicator {
     width: 12px;
     height: 12px;
+    min-width: 12px;
+    min-height: 12px;
     border-radius: 50%;
     background: rgba(255,255,255,0.5);
     cursor: pointer;
@@ -756,14 +623,16 @@ body {
 
 .notes-trigger {
     display: inline-block;
-    padding: 15px 30px;
-    background: linear-gradient(135deg, #81334d, #bc3703);
-    color: rgb(255, 34, 34);
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #FF6B9D, #FFA07A);
+    color: white;
     border-radius: 25px;
     cursor: pointer;
     font-size: 1.1em;
     transition: all 0.3s ease;
     user-select: none;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+    min-height: 52px;
 }
 
 .notes-trigger:hover {
@@ -782,7 +651,7 @@ body {
     margin-top: 0;
     padding: 0 30px;
     font-size: 1.2em;
-    color: #333;
+    color: #fdfdfd;
     line-height: 1.8;
     background: rgba(255, 255, 255, 0.95); 
     border-radius: 15px;
@@ -795,4 +664,411 @@ body {
     opacity: 1;
     margin-top: 20px;
     padding: 25px 30px;
+}
+
+/* ============================================ */
+/* RESPONSIVE DESIGN - TABLET */
+/* ============================================ */
+@media (max-width: 1024px) {
+    .music-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .music-card:first-child {
+        grid-column: 1 / -1;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+/* ============================================ */
+/* RESPONSIVE DESIGN - MOBILE (768px) */
+/* ============================================ */
+@media (max-width: 768px) {
+    /* Envelope */
+    .envelope {
+        width: 150px;
+        height: 105px;
+    }
+
+    .envelope-back {
+        width: 150px;
+        height: 105px;
+    }
+
+    .envelope-front {
+        border-left-width: 75px;
+        border-right-width: 75px;
+        border-bottom-width: 52.5px;
+    }
+
+    .letter {
+        width: 135px;
+        height: 150px;
+        top: 15px;
+        left: 7.5px;
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    .open-text {
+        font-size: 16px;
+        margin-top: 130px;
+    }
+
+    /* Modal */
+    .reminder-content {
+        padding: 35px 30px;
+        max-width: 90%;
+    }
+    
+    .reminder-content p {
+        font-size: 1.1em;
+    }
+    
+    .reminder-thanks {
+        font-size: 1.1em !important;
+    }
+
+    .continue-button {
+        font-size: 1.1em;
+        padding: 16px 35px;
+        min-width: 220px;
+        min-height: 52px;
+    }
+
+    /* Hero */
+    .hero h1 { font-size: 2.5em; }
+    .hero h2 { font-size: 1.8em; }
+    .hero p { font-size: 1.2em; }
+
+    /* Message */
+    .letter-title {
+        font-size: 1.8em;
+    }
+
+    .message-box {
+        padding: 35px 25px;
+        font-size: 1em;
+    }
+
+    /* Music */
+    .music-section h2 {
+        font-size: 2.5em;
+    }
+
+    .music-intro {
+        font-size: 1.1em;
+    }
+
+    .music-cards {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .music-card {
+        padding: 25px;
+    }
+
+    .music-card h3 {
+        font-size: 1.6em;
+    }
+
+    .lyrics-toggle {
+        font-size: 0.95em;
+        padding: 12px 24px;
+    }
+
+    .lyrics-content {
+        padding: 20px;
+        max-height: 350px;
+    }
+
+    /* Carousel */
+    .carousel {
+        height: 380px;
+    }
+
+    .carousel-btn {
+        width: 46px;
+        height: 46px;
+        min-width: 46px;
+        min-height: 46px;
+        font-size: 22px;
+    }
+
+    .carousel-btn.prev {
+        left: 12px;
+    }
+
+    .carousel-btn.next {
+        right: 12px;
+    }
+
+    /* Closing */
+    .gallery-section h2 {
+        font-size: 2.5em;
+    }
+
+    .closing h2 {
+        font-size: 2.2em;
+    }
+
+    .closing p {
+        font-size: 1.15em;
+    }
+
+    .notes-trigger {
+        font-size: 1em;
+        padding: 14px 28px;
+    }
+
+    .notes-content {
+        font-size: 1.1em;
+        padding: 0 25px;
+    }
+
+    .notes-content.show {
+        padding: 22px 25px;
+    }
+}
+
+/* ============================================ */
+/* RESPONSIVE DESIGN - SMALL MOBILE (480px) */
+/* ============================================ */
+@media (max-width: 480px) {
+    /* Envelope */
+    .envelope {
+        width: 120px;
+        height: 84px;
+    }
+
+    .envelope-back {
+        width: 120px;
+        height: 84px;
+    }
+
+    .envelope-front {
+        border-left-width: 60px;
+        border-right-width: 60px;
+        border-bottom-width: 42px;
+    }
+
+    .letter {
+        width: 108px;
+        height: 120px;
+        top: 12px;
+        left: 6px;
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .open-text {
+        font-size: 14px;
+        margin-top: 105px;
+    }
+
+    /* Modal */
+    .reminder-content {
+        padding: 25px 20px;
+        max-width: 92%;
+    }
+    
+    .reminder-content p {
+        font-size: 0.95em;
+        margin-bottom: 12px;
+    }
+    
+    .reminder-thanks {
+        font-size: 1em !important;
+        margin-top: 18px !important;
+    }
+
+    .continue-button {
+        font-size: 1em;
+        padding: 14px 30px;
+        min-width: 200px;
+        min-height: 50px;
+    }
+
+    /* Hero */
+    .hero h1 { font-size: 2em; }
+    .hero h2 { font-size: 1.4em; }
+    .hero p { font-size: 1em; padding: 0 10px; }
+
+    /* Message */
+    .letter-title {
+        font-size: 1.5em;
+        margin-bottom: 25px;
+    }
+
+    .message-box {
+        padding: 25px 18px;
+        font-size: 0.95em;
+    }
+
+    /* Music */
+    .music-section h2 {
+        font-size: 2em;
+    }
+
+    .music-intro {
+        font-size: 1em;
+        margin-bottom: 35px;
+    }
+
+    .music-cards {
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .music-card {
+        padding: 20px;
+    }
+
+    .music-card h3 {
+        font-size: 1.4em;
+    }
+
+    .music-card p {
+        font-size: 0.95em;
+    }
+
+    .lyrics-toggle {
+        font-size: 0.9em;
+        padding: 12px 20px;
+    }
+
+    .lyrics-content {
+        padding: 18px;
+        font-size: 0.9em;
+        max-height: 300px;
+    }
+
+    .lyrics-box.show {
+        max-height: 350px;
+    }
+
+    /* Carousel */
+    .carousel {
+        height: 300px;
+        max-width: 95%;
+    }
+
+    .carousel-btn {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        min-height: 42px;
+        font-size: 20px;
+    }
+
+    .carousel-btn.prev {
+        left: 8px;
+    }
+
+    .carousel-btn.next {
+        right: 8px;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+        min-width: 10px;
+        min-height: 10px;
+    }
+
+    /* Closing */
+    .gallery-section h2 {
+        font-size: 2em;
+    }
+
+    .closing h2 {
+        font-size: 1.8em;
+    }
+
+    .closing p {
+        font-size: 1em;
+        padding: 0 10px;
+    }
+
+    .notes-trigger {
+        font-size: 0.95em;
+        padding: 12px 24px;
+    }
+
+    .notes-content {
+        font-size: 1em;
+        padding: 0 20px;
+    }
+
+    .notes-content.show {
+        padding: 20px;
+    }
+}
+
+/* ============================================ */
+/* RESPONSIVE DESIGN - VERY SMALL (380px) */
+/* ============================================ */
+@media (max-width: 380px) {
+    .envelope {
+        width: 100px;
+        height: 70px;
+    }
+
+    .envelope-back {
+        width: 100px;
+        height: 70px;
+    }
+
+    .envelope-front {
+        border-left-width: 50px;
+        border-right-width: 50px;
+        border-bottom-width: 35px;
+    }
+
+    .letter {
+        width: 90px;
+        height: 100px;
+        top: 10px;
+        left: 5px;
+        font-size: 10px;
+        padding: 8px;
+    }
+
+    .open-text {
+        font-size: 12px;
+        margin-top: 85px;
+    }
+
+    .continue-button {
+        font-size: 0.95em;
+        padding: 12px 25px;
+        min-width: 180px;
+    }
+
+    .hero h1 { font-size: 1.7em; }
+    .hero h2 { font-size: 1.2em; }
+    .hero p { font-size: 0.9em; }
+
+    .message-box {
+        padding: 20px 15px;
+        font-size: 0.9em;
+    }
+
+    .music-section h2 {
+        font-size: 1.7em;
+    }
+
+    .music-card {
+        padding: 18px;
+    }
+
+    .carousel {
+        height: 260px;
+    }
+
+    .closing h2 {
+        font-size: 1.6em;
+    }
 }

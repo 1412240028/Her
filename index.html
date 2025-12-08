@@ -25,6 +25,10 @@
             <p>Tolong luangin waktu sebentar ya buat baca & dengerin seluruh isi surat ini.</p>
             <p>Ada banyak hal yang pengen aku sampein.</p>
             <p class="reminder-thanks">Terimakasih banyak ya udah mau baca, semoga pesan yang akan kamu baca nggak mengganggu kamu.</p>
+            
+            <button id="continueBtn" class="continue-button">
+                🎵 Lanjutkan & Putar Musik
+            </button>
         </div>
     </div>
 
@@ -39,11 +43,10 @@
 
         <!-- Message Section -->
         <section class="message-section">
-            
             <div class="message-box">
-            <h2 class="letter-title">The Letter</h2>    
+                <h2 class="letter-title">The Letter</h2>    
                 
-                <p>Haiii, apa kabar? hehe, nggak kerasa yaa tiba-tiba udah tiba juga waktunya. HAPPY BIRTHDAY YAAAA! 🎉 udah 19 tahun aja nih hehe. semoga tahun ini jadi tahun yang lebih ringan buat kamuu, entah itu di kuliah, rumah, pertemanan, ataupun hal-hal kecil yang kamu lagi perjuangin. aku bener-bener berharap kamu selalu ketemu hal yang baik dan orang-orang yang baik juga.</p>
+                <p>Haiii, apa kabar? hehe, nggak kerasa yaa tiba-tiba udah tiba juga waktunya. <strong>HAPPY BIRTHDAY YAAAA! 🎉</strong> udah 19 tahun aja nih hehe. semoga tahun ini jadi tahun yang lebih ringan buat kamuu, entah itu di kuliah, rumah, pertemanan, ataupun hal-hal kecil yang kamu lagi perjuangin. aku bener-bener berharap kamu selalu ketemu hal yang baik dan orang-orang yang baik juga.</p>
                 
                 <p>Jujur, aku agak bingung mau nulis apa. Dah lama kita nggak ngobrol, dan ya… rasanya agak canggung tapi juga kangen, dua-duanya campur hehe. Kangen suasana kita yang dulu kalau lagi ngobrol hal random atau ketawa karena hal kecil, bukan karena aku berharap balik atau semacamnya. cuma yaa, sering kenangan itu muncul sendiri.</p>
                 
@@ -67,44 +70,150 @@
             </div>
         </section>
 
-        <section class="music-section">
+        <!-- Music Section -->
+        <section class="music-section" id="musicSection">
             <h2>🎵 Pesan Yang Tak Tersampaikan 🎵</h2>
             <div class="music-intro">
                 <p>Ada beberapa hal yang dulu nggak bisa aku sampaiin dengan kata-kata. Jadi aku pilih 3 lagu ini yang mewakilin perasaan yang selama ini terpendam...</p>
             </div>
             <div class="music-cards">
+                <!-- Untitled -->
                 <div class="music-card">
                     <h3>Untitled - I.N & Hyunjin</h3>
                     <p>"Lagu ini kerasa banget kayak apa yang aku simpan selama ini. Aku tau… perasaan yang aku punya mungkin nggak pantas buat aku ungkapin, dan aku ngerti kalau kehadiran aku kadang bisa bikin kamu ngerasa nggak nyaman atau terbebani. Tapi aku juga nggak bisa pura-pura nggak ngerasain apa-apa. Ada banyak hal yang sebenarnya pengen banget aku bilang, tapi aku tahan karena aku nggak mau ganggu kamu, apalagi bikin hidup kamu berat. Jadi aku simpan semuanya diam-diam, kayak di lagu itu—cinta yang nggak pernah aku suarain dengan keras, tapi tetap tulus dan nyata. Aku sadar kok… cinta itu nggak harus memiliki. Dan mungkin aku bukan orang yang kamu pengenin ada di samping kamu. Tapi aku cuma pengen kamu tau satu hal: perasaanku ini beneran tulus. Bukan buat nuntut apa pun, bukan buat narik kamu balik… cuma karena aku bener-bener sayang sama kamu, tanpa syarat."</p>
-                    <audio class="music-player" id="audio3" controls>
+                    <audio class="music-player song-audio" id="audio3" controls>
                         <source src="Music_Section/untitled.mp3" type="audio/mp3">
                         Your browser does not support the audio element.
                     </audio>
-                    <a href="https://www.youtube.com/watch?v=1Wrp7VW-9nM" target="_blank" class="youtube-link">
-                        🎥 Ntar kalo udah baca semua pesannya jangan lupa tonton video ini yaaa!!! (pencet)
-                    </a>
+                    
+                    <button class="lyrics-toggle" onclick="toggleLyrics('lyrics1', this)">
+                        <span class="icon">▼</span> Lihat Lirik
+                    </button>
+                    
+                    <div class="lyrics-box" id="lyrics1">
+                        <div class="lyrics-content">
+                            <p>Eonjebuteonga → <strong>Entah sejak kapan</strong></p>
+                            <p>Chagapdeon ne nundo → <strong>Tatapan matamu yang dulu hangat jadi dingin</strong></p>
+                            <p>Eojjeomyeon naega mandeun gegetji → <strong>Mungkin aku yang bikin semuanya jadi begini</strong></p>
+                            <p>Nareul anggoseon heeojija malhae → <strong>Kau memelukku sambil bilang kita harus berpisah</strong></p>
+                            <p>Nae mameul daesin malhan gegetji → <strong>Seolah kau mengucapkan apa yang sebenarnya juga ada di hatiku</strong></p>
+                            <p>Sangcheoga deo gipsuki pagodeulgi jeon → <strong>Sebelum luka ini makin dalam</strong></p>
+                            <p>Tteona joeun saram manna → <strong>Pergilah… dan temui seseorang yang lebih baik dariku</strong></p>
+                            <br>
+                            <p>Geudael saranghaesseulkka-yo? → <strong>Apa aku benar-benar mencintaimu?</strong></p>
+                            <p>Geujeo oeroumeul dallas bi-geophan bangsige sarang-ilkkayo? → <strong>Atau ini hanya cinta pengecut yang kupakai untuk menutupi kesepianku?</strong></p>
+                            <p>Geudaen wonmanghaedo dwaeyo → <strong>Kamu boleh membenciku kalau itu yang kamu mau</strong></p>
+                            <p>Yeongwonhal geot gatdeon naega bi-geophan bangsige ibyeoreul haeyo → <strong>Aku yang dulu bilang akan selamanya… malah pergi dengan cara pengecut</strong></p>
+                            <br>
+                            <p>Yeah, geudael mannagi wihae ssodatdeon modeun gamjeongeun → <strong>Semua perasaan yang pernah kutumpahkan untukmu…</strong></p>
+                            <p>Jisokbodan ilsi-jeogin mame sageuradeul deut → <strong>Sepertinya bukan perasaan yang bertahan lama, hanya sesaat… lalu padam</strong></p>
+                            <p>Neoneun eotteon iyuro nareul wae saranghaesseulkka? → <strong>Apa alasanmu mencintaiku dulu? Kenapa aku?</strong></p>
+                            <p>Na gateun geon ijeun daeume budi haengbokhagil bara → <strong>Kumohon… lupakan orang seperti aku, dan semoga kamu bahagia</strong></p>
+                            <p>Neoneun nunmuldo manasseo yeppeun maeume hangsang → <strong>Kamu selalu mudah menangis, karena hatimu terlalu indah dan lembut</strong></p>
+                            <p>Biga naerigo naneun cheondungeul jwosseuni → <strong>Saat kamu memberi hujan yang lembut, aku malah memberi petir yang menyakitkan</strong></p>
+                            <p>Nal neoreul saranghaji mothae geuge eotteon iyurodeun → <strong>Aku tidak bisa mencintaimu dengan benar… entah apa pun alasannya</strong></p>
+                            <br>
+                            <p>Hyungteoga deo jiteojeo aryeo ogi jeon → <strong>Sebelum bekas lukamu makin dalam dan perih</strong></p>
+                            <p>Tteona joeun saram manna → <strong>Pergilah… dan temui seseorang yang jauh lebih baik dariku</strong></p>
+                            <br>
+                            <p>Geudael saranghaesseulkka-yo? → <strong>Apa aku benar-benar mencintaimu?</strong></p>
+                            <p>Geujeo oeroumeul dallas bi-geophan bangsige sarang-ilkkayo? → <strong>Atau ini cuma caraku menutupi kesepian?</strong></p>
+                            <p>Geudaen wonmanghaedo dwaeyo → <strong>Kamu boleh membenciku… sungguh.</strong></p>
+                            <p>Yeongwonhal geot gatdeon naega bi-geophan bangsige ibyeoreul haeyo → <strong>Aku yang dulu bilang "selamanya"… mengakhiri semuanya dengan cara paling pengecut.</strong></p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Photobook -->
                 <div class="music-card">
                     <h3>Photobook - Stray Kids</h3>
                     <p>"Lagu Photobook ini ngingetin aku sama cara aku ngelihat kamu. Kamu itu kayak "photobook" di hidup aku—bukan karena aku masih ke-bawa perasaan, tapi karena kamu pernah jadi bagian penting yang banyak berubahin cara aku ngeliat dunia. Banyak kenangan kita yang masih kebawa, bukan buat disesali, tapi buat dihargai. Kita mungkin udah nggak jalan bareng lagi, tapi semua cerita baiknya tetap aku simpan dengan rapi, kayak halaman-halaman foto yang nggak bakal kehapus cuma karena waktu berjalan. Aku nggak nuntut apa-apa juga. Cuma pengen kamu tau kalau keberadaan kamu dulu bener-bener punya makna buat aku. Dan meskipun jalan kita sekarang beda, kamu tetap salah satu halaman terbaik yang pernah ada di hidupku."</p>
-                    <audio class="music-player" id="audio1" controls>
+                    <audio class="music-player song-audio" id="audio1" controls>
                         <source src="Music_Section/photobook.mp3" type="audio/mp3">
                         Your browser does not support the audio element.
                     </audio>
-                    <a href="https://www.youtube.com/watch?v=h1cFe4SunKs" target="_blank" class="youtube-link">
-                        🎥 Ntar kalo udah baca semua pesannya jangan lupa tonton video ini yaaa!!! (pencet)
-                    </a>
+                    
+                    <button class="lyrics-toggle" onclick="toggleLyrics('lyrics2', this)">
+                        <span class="icon">▼</span> Lihat Lirik
+                    </button>
+                    
+                    <div class="lyrics-box" id="lyrics2">
+                        <div class="lyrics-content">
+                            <p>Han peijis-sik neomgineun sorie gwiga ullinda → <strong>Telingaku bergetar tiap mendengar suara halaman yang dibalik satu per satu</strong></p>
+                            <p>Yalbjiman mugeoun uriui gieokdeul ttaemuninga bwa → <strong>Mungkin karena kenangan kita, tipis tapi terasa berat</strong></p>
+                            <p>Han peijis-sik boineun sajin-ui seutoriwa sigan → <strong>Setiap halaman menunjukkan cerita dan waktu dalam foto-foto itu</strong></p>
+                            <p>Geuriwo geuriwo dasi doragagopa → <strong>Aku rindu… rindu… ingin kembali ke masa itu</strong></p>
+                            <br>
+                            <p>Gwageneun dasi doraoji anneun geoseul nado ara → <strong>Aku tahu masa lalu itu tidak akan kembali</strong></p>
+                            <p>Jamsi neol dugo gayaman haneun geotto sasireun ara → <strong>Aku juga tahu aku harus meninggalkanmu untuk sementara</strong></p>
+                            <p>Eogeutna beorin sigandeul sai-e dasi oechinda → <strong>Di antara waktu yang sudah meleset dari jalannya, aku berteriak lagi…</strong></p>
+                            <p>Saranghae, yeongwoneul neomeo nege insareul jeonhanda → <strong>Aku mencintaimu, melampaui selamanya—kuberi kau salam terakhir</strong></p>
+                            <br>
+                            <p>Uriegeneun i siganeun neomu himdeul su itjiman → <strong>Buat kita, waktu ini mungkin terasa sangat berat…</strong></p>
+                            <p>Dasi neol bol geunar-eul kkumkkumyeo kkok gidaril geoya → <strong>Tapi aku akan menunggu, sambil memimpikan hari ketika aku bisa melihatmu lagi</strong></p>
+                            <br>
+                            <p>Sajin soge inneun uri chueogeuro namneun sungan → <strong>Momen kita di dalam foto itu tinggal sebagai kenangan</strong></p>
+                            <p>Nado useoya haneunji ureoya haneunji honnanseureopda → <strong>Aku bingung harus tertawa atau menangis melihatnya</strong></p>
+                            <p>Sajin sog neoui moksori majimageuro deullyeojwo bwa → <strong>Coba perdengarkan suaramu terakhir kalinya lewat foto itu…</strong></p>
+                            <p>Seoreowo seoreowo neol bonaego sipji ana → <strong>Aku sedih… sangat sedih… aku tidak ingin melepaskanmu</strong></p>
+                            <br>
+                            <p>Gwageneun dasi doraoji anjiman yeongwonhi nama → <strong>Masa lalu tak akan kembali, tapi ia akan tinggal selamanya</strong></p>
+                            <p>Ajik i dwitjang-en chaewoya hal sungan-i neomu mana → <strong>Masih banyak halaman kosong yang belum terisi oleh momen-momen kita</strong></p>
+                            <p>Saranghandaneun geoseul wae deo malhaji mothaesseulkka → <strong>Kenapa aku nggak bisa bilang "aku mencintaimu" lebih sering?</strong></p>
+                            <p>Jogeumman jogeumman deo gyeote itgo sipeo nan → <strong>Aku cuma ingin berada sedikit… sedikit lebih lama di sisimu</strong></p>
+                            <br>
+                            <p>Eogeutna beoril sigandeul sai-e dasi oechinda → <strong>Di antara waktu yang akan berantakan ini, aku berteriak lagi…</strong></p>
+                            <p>Saranghandago majimageuro insareul jeonhanda → <strong>"Aku mencintaimu," kukatakan sebagai salam terakhir</strong></p>
+                            <p>Eotteon huhoedo eops-eosseo naneun neol mannassnikka → <strong>Aku nggak menyesal apa pun, karena aku pernah bertemu denganmu</strong></p>
+                            <p>Jamkkan-ui geu ibyeol dwiedo nae mamsogeun pureuda → <strong>Meskipun setelah perpisahan singkat ini… hatiku tetap hijau—tetap hidup</strong></p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Limbo -->
                 <div class="music-card">
                     <h3>Limbo - Lee Know</h3>
                     <p>"Jujur aja… sampai sekarang aku masih belum siap buat ngelepasin kamu. Aku tahu mungkin memang perpisahan ini harus terjadi demi kebaikan kamu, biar kamu jauh dari orang bodoh kayak aku yang dulu malah ngasih tekanan dan hal-hal buruk ke hidup kamu. Tapi meski begitu, pikiran aku tetep nempel di kamu. Bukan karena aku nggak bisa sendiri, tapi karena kamu selalu jadi seseorang yang nggak pernah bisa aku anggap "biasa aja". Perasaan ini masih ada, utuh, dan jujur. Dan setiap kali aku denger lagu itu, rasanya kayak semua yang aku tahan muncul lagi. Bukan tentang move on… tapi tentang aku yang masih tetep berdiri di tempat yang sama, nunggu perasaan ini reda atau mungkin nunggu kamu, kalau suatu hari kamu butuh aku lagi."</p>
-                    <audio class="music-player" id="audio2" controls>
+                    <audio class="music-player song-audio" id="audio2" controls>
                         <source src="Music_Section/limbo.mp3" type="audio/mp3">
                         Your browser does not support the audio element.
                     </audio>
-                    <a href="https://www.youtube.com/watch?v=3ghcp5F25zw" target="_blank" class="youtube-link">
-                        🎥 Ntar kalo udah baca semua pesannya jangan lupa tonton video ini yaaa!!! (pencet)
-                    </a>
+                    
+                    <button class="lyrics-toggle" onclick="toggleLyrics('lyrics3', this)">
+                        <span class="icon">▼</span> Lihat Lirik
+                    </button>
+                    
+                    <div class="lyrics-box" id="lyrics3">
+                        <div class="lyrics-content">
+                            <p>Naranhi gireul georeo → <strong>Kita berjalan berdampingan di jalan itu</strong></p>
+                            <p>Majimagi doel juldo moreugo nan → <strong>Tanpa tahu kalau itu akan jadi yang terakhir</strong></p>
+                            <p>Namgyeojin baljagugeseo → <strong>Dari jejak langkah yang tertinggal</strong></p>
+                            <p>Ne hyanggiga namanneunji dorabwa → <strong>Aku menoleh, mencari apakah aroma dirimu masih ada</strong></p>
+                            <br>
+                            <p>Uri iyagi areumdawotgo, neon naege namgyeojin gieok → <strong>Kisah kita dulu indah, dan kamu adalah kenangan yang tertinggal dalam diriku</strong></p>
+                            <p>Geu isangui uimiran geol itji mara jwo → <strong>Jangan lupakan bahwa artinya lebih dari sekadar kenangan</strong></p>
+                            <br>
+                            <p>Gin haru sogeul hemaeida dasi sijakdoeneun bam → <strong>Dalam hari yang panjang aku tersesat, lalu malam kembali dimulai</strong></p>
+                            <p>Ajik motda han mari maneunde → <strong>Masih banyak hal yang belum sempat kukatakan</strong></p>
+                            <br>
+                            <p>Na kkumsogeseo apeuji anke → <strong>Dalam mimpiku, aku ingin kamu tidak terluka</strong></p>
+                            <p>Najimagi neoreul bureugo sipeo → <strong>Aku ingin memanggilmu dengan lembut</strong></p>
+                            <p>Da itji mothae baraneun sungan → <strong>Di saat aku masih belum bisa melupakan apapun</strong></p>
+                            <p>Yejeoncheoreom doragage doelkka → <strong>Apakah kita bisa kembali seperti dulu?</strong></p>
+                            <br>
+                            <p>Hanmadie bakkwil geol ara jeonhaji motan mal → <strong>Ada kata yang tahu-tahu bisa mengubah segalanya, tapi tak pernah sempat kusampaikan</strong></p>
+                            <p>Gipeun kkum sok nareul gadwo bonaeji ma → <strong>Jangan kurung aku dalam mimpi yang dalam ini, jangan lepaskan aku</strong></p>
+                            <br>
+                            <p>Gieokaji ana ijeun jullo aratdeon → <strong>Hal-hal yang kupikir sudah kulupakan—ternyata tidak benar-benar hilang</strong></p>
+                            <p>Neoui chueok han jogak → <strong>Potongan kecil kenangan tentangmu</strong></p>
+                            <p>Geuriul ttaemyeon han beonssik kkeonae bolge → <strong>Saat aku merindukanmu, aku akan mengambilnya dan melihatnya lagi</strong></p>
+                            <br>
+                            <p>Naege boyeojudeon naman bol su itdeon neoui moseup → <strong>Sisi dirimu yang hanya kau tunjukkan padaku, yang hanya aku yang bisa melihat</strong></p>
+                            <p>Han beonjjeumeun neodo nareul tteoollyeo jullae → <strong>Bisakah sekali saja… kamu juga mengingatku?</strong></p>
+                            <br>
+                            <p>Najimagi honjatmal → <strong>Sebuah bisikan pelan… ucapan untuk diriku sendiri</strong></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -162,13 +271,14 @@
             <div class="notes-container">
                 <p class="notes-trigger" id="notesTrigger">📝 Notes (klik untuk membaca)</p>
                 <p class="notes-content" id="notesContent">Aku nggak tau hidup bakal bawa kita ke mana. Tapi kalau suatu saat dunia lagi nggak ramah sama kamu, atau bahkan saat kamu ngerayain hal kecil tapi sendirian… aku pengen kamu inget kalau pintu ke aku itu masih kebuka. Bukan buat kamu balik sekarang, cuma… biar kamu tau kamu nggak sendirian.</p>
-                <audio class="music-player" id="audio2" controls>
-                    <source src="Music_Section/pelukku untuk pelikmu.mp3" type="audio/mp3">
-                    Your browser does not support the audio element.
-                </audio>
             </div>
         </section>
     </div>
+
+    <!-- Background Music (Hidden) -->
+    <audio id="bgMusic" loop>
+        <source src="Music_Section/pelukku untuk pelikmu.mp3" type="audio/mp3">
+    </audio>
 
     <script src="script.js"></script>
 </body>
