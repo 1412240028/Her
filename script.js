@@ -8,8 +8,24 @@ const bgMusic = document.getElementById('bgMusic');
 const musicSection = document.getElementById('musicSection');
 const songAudios = document.querySelectorAll('.song-audio');
 
+// Toast Player Elements
+const musicToast = document.getElementById('musicToast');
+const toastToggle = document.getElementById('toastToggle');
+const toastContent = document.getElementById('toastContent');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const volumeSlider = document.getElementById('volumeSlider');
+const volumeValue = document.getElementById('volumeValue');
+const progressBar = document.getElementById('progressBar');
+const progressFill = document.getElementById('progressFill');
+const currentTimeDisplay = document.getElementById('currentTime');
+const durationDisplay = document.getElementById('duration');
+
 // Set background music volume
 bgMusic.volume = 0.4;
+
+// Toast Player State
+let isToastExpanded = true;
+let bgMusicWasPausedManually = false;
 
 envelope.addEventListener('click', function() {
     envelope.classList.add('open');
@@ -42,9 +58,12 @@ continueBtn.addEventListener('click', function() {
     // Show main content after modal fades out
     setTimeout(() => {
         mainContent.classList.add('show');
+        musicToast.classList.add('show');
         
         // Start background music with user interaction (GUARANTEED TO WORK)
-        bgMusic.play().catch(err => {
+        bgMusic.play().then(() => {
+            updatePlayPauseButton();
+        }).catch(err => {
             console.log('Background music autoplay prevented:', err);
         });
     }, 700);
@@ -64,34 +83,75 @@ function createConfetti() {
     }, 5000);
 }
 
-// Background Music Control with Scroll Detection
-let bgMusicWasPausedByScroll = false;
+// ===== TOAST PLAYER CONTROLS =====
 
-window.addEventListener('scroll', function() {
-    // Check if musicSection exists before accessing it
-    if (!musicSection) return;
-    
-    const musicSectionRect = musicSection.getBoundingClientRect();
-    const isInMusicSection = musicSectionRect.top < window.innerHeight && musicSectionRect.bottom > 0;
-    
-    if (isInMusicSection && !bgMusic.paused) {
-        bgMusic.pause();
-        bgMusicWasPausedByScroll = true;
-    } else if (!isInMusicSection && bgMusicWasPausedByScroll) {
-        // Check if no song is currently playing
-        let anySongPlaying = false;
-        songAudios.forEach(audio => {
-            if (!audio.paused) {
-                anySongPlaying = true;
-            }
-        });
-        
-        if (!anySongPlaying) {
-            bgMusic.play().catch(err => console.log('BG music resume error:', err));
-        }
-        bgMusicWasPausedByScroll = false;
+// Toggle Toast Expand/Collapse
+toastToggle.addEventListener('click', function() {
+    isToastExpanded = !isToastExpanded;
+    if (isToastExpanded) {
+        toastContent.classList.remove('collapsed');
+        toastToggle.querySelector('.toggle-icon').textContent = '▼';
+    } else {
+        toastContent.classList.add('collapsed');
+        toastToggle.querySelector('.toggle-icon').textContent = '▲';
     }
 });
+
+// Play/Pause Button
+playPauseBtn.addEventListener('click', function() {
+    if (bgMusic.paused) {
+        bgMusic.play();
+        bgMusicWasPausedManually = false;
+    } else {
+        bgMusic.pause();
+        bgMusicWasPausedManually = true;
+    }
+    updatePlayPauseButton();
+});
+
+function updatePlayPauseButton() {
+    const icon = playPauseBtn.querySelector('.play-icon');
+    if (bgMusic.paused) {
+        icon.textContent = '▶';
+        playPauseBtn.classList.remove('playing');
+    } else {
+        icon.textContent = '⏸';
+        playPauseBtn.classList.add('playing');
+    }
+}
+
+// Volume Control
+volumeSlider.addEventListener('input', function() {
+    const volume = this.value / 100;
+    bgMusic.volume = volume;
+    volumeValue.textContent = this.value + '%';
+});
+
+// Progress Bar Click
+progressBar.addEventListener('click', function(e) {
+    const rect = progressBar.getBoundingClientRect();
+    const percent = (e.clientX - rect.left) / rect.width;
+    bgMusic.currentTime = percent * bgMusic.duration;
+});
+
+// Update Progress Bar
+bgMusic.addEventListener('timeupdate', function() {
+    if (bgMusic.duration) {
+        const percent = (bgMusic.currentTime / bgMusic.duration) * 100;
+        progressFill.style.width = percent + '%';
+        
+        currentTimeDisplay.textContent = formatTime(bgMusic.currentTime);
+        durationDisplay.textContent = formatTime(bgMusic.duration);
+    }
+});
+
+// Format Time Helper
+function formatTime(seconds) {
+    if (isNaN(seconds)) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return mins + ':' + (secs < 10 ? '0' : '') + secs;
+}
 
 // Song Audio Controls - Pause BG music when song plays
 songAudios.forEach(songAudio => {
@@ -99,6 +159,7 @@ songAudios.forEach(songAudio => {
         // Pause background music when any song starts playing
         if (!bgMusic.paused) {
             bgMusic.pause();
+            updatePlayPauseButton();
         }
         
         // Pause all other songs
@@ -118,15 +179,10 @@ songAudios.forEach(songAudio => {
             }
         });
         
-        // Resume background music only if all songs are paused and not in music section
-        if (allSongsPaused && !bgMusicWasPausedByScroll) {
-            if (!musicSection) return;
-            const musicSectionRect = musicSection.getBoundingClientRect();
-            const isInMusicSection = musicSectionRect.top < window.innerHeight && musicSectionRect.bottom > 0;
-            
-            if (!isInMusicSection) {
-                bgMusic.play().catch(err => console.log('BG music resume error:', err));
-            }
+        // Resume background music only if not manually paused
+        if (allSongsPaused && !bgMusicWasPausedManually) {
+            bgMusic.play();
+            updatePlayPauseButton();
         }
     });
     
@@ -139,14 +195,9 @@ songAudios.forEach(songAudio => {
             }
         });
         
-        if (allSongsPaused && !bgMusicWasPausedByScroll) {
-            if (!musicSection) return;
-            const musicSectionRect = musicSection.getBoundingClientRect();
-            const isInMusicSection = musicSectionRect.top < window.innerHeight && musicSectionRect.bottom > 0;
-            
-            if (!isInMusicSection) {
-                bgMusic.play().catch(err => console.log('BG music resume error:', err));
-            }
+        if (allSongsPaused && !bgMusicWasPausedManually) {
+            bgMusic.play();
+            updatePlayPauseButton();
         }
     });
 });

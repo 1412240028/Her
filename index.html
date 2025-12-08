@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday ❤️</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+    <title>❤️ Happy Birthday ❤️</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💌</text></svg>">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,7 +27,7 @@
             <p class="reminder-thanks">Terimakasih banyak ya udah mau baca, semoga pesan yang akan kamu baca nggak mengganggu kamu.</p>
             
             <button id="continueBtn" class="continue-button">
-                🎵 Lanjutkan & Putar Musik
+                🎵 Lanjutkan
             </button>
         </div>
     </div>
@@ -37,7 +37,7 @@
         <!-- Hero Section -->
         <section class="hero">
             <h1>🎂 Happy Birthday 🎂</h1>
-            <h2>Adek</h2>
+            <h2><strong>"Adek" </strong></h2>
             <p>Iga Silvana - The Most Beautiful Girl I've Ever Met</p>
         </section>
 
@@ -54,13 +54,15 @@
                 
                 <p>Pertama-tama, aku mau minta maaf.</p>
                 
-                <p>buat hal-hal yang dulu bikin kamu kesel, bikin kamu ngerasa maksa, atau bikin kamu nggak nyaman. aku dulu masih belajar banyak soal cara komunikasi, dan kadang aku takut ngomong apa yang aku rasain karena khawatir kamu bakal risih. itu salahku banget.</p>
+                <p>buat hal-hal yang dulu bikin kamu kesel, bikin kamu sedih, bikin kamu marah, bikin kamu ngerasa maksa, atau bikin kamu nggak nyaman. aku dulu masih belajar banyak soal cara komunikasi, dan kadang aku takut ngomong apa yang aku rasain karena khawatir kamu bakal risih. itu salahku banget.</p>
                 
                 <p>tapi aku juga lega karena kita pernah lewat masa yang asik-asik juga. yang itu tetap aku simpen selamanya sebagai hal yang indah, bahagia dan baik.</p>
                 
                 <p>aku nggak tau kamu baca ini dalam keadaan lagi sibuk atau lagi capek, jadi aku nggak mau bikin ini berat. kamu nggak perlu bales panjang, atau bales sekarang, atau bahkan bales sama sekali kalau lagi nggak mood juga nggak apa-apa. dan maaf kalau apa yang ku utarakan bikin mood kamu memburuk.</p>
                 
                 <p>aku cuma bener-bener berharap kamu bahagia di umur kamu yang baru. semoga apa pun yang kamu lagi kejar, kamu bisa sampai. dan semoga orang-orang di sekitar kamu juga bisa bikin kamu ngerasa aman & dihargai.</p>
+
+                <p>oh iya, gimana? suka tidak sama hadiah nyaa?? hehe maaf yaa aku cuman baru bisa ngasih ini. aku milih barang ini karena aku inget dulu aku janji ke diri aku sendiri, suatu saat bakal beliin barang yang kamu ingin. berhubung aku ngga tau sama sekali sama barang yang lagi kamu ingin akhir-akhir ini. aku milih yang kamu inginin dulu. hope u like the gift</p>
                 
                 <p>itu ajaa. happy birthday sekali lagi. semoga kamu selalu dirayakan karena kamu layak untuk itu!</p>
 
@@ -279,6 +281,38 @@
     <audio id="bgMusic" loop>
         <source src="Music_Section/pelukku untuk pelikmu.mp3" type="audio/mp3">
     </audio>
+
+    <!-- Floating Music Player Toast -->
+    <div id="musicToast" class="music-toast">
+        <button class="toast-toggle" id="toastToggle">
+            <span class="toggle-icon">▼</span>
+        </button>
+        <div class="toast-content" id="toastContent">
+            <div class="toast-header">
+                <span class="music-icon">🎵</span>
+                <span class="toast-title">Background Music</span>
+            </div>
+            <div class="toast-controls">
+                <button class="control-btn play-pause" id="playPauseBtn">
+                    <span class="play-icon">▶</span>
+                </button>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="time-display">
+                        <span id="currentTime">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="volume-container">
+                <span class="volume-icon">🔊</span>
+                <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="40">
+                <span class="volume-value" id="volumeValue">40%</span>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -669,6 +669,215 @@ body {
 }
 
 /* ============================================ */
+/* FLOATING MUSIC TOAST PLAYER */
+/* ============================================ */
+.music-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.95), rgba(255, 160, 122, 0.95));
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(255, 107, 157, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 9000;
+    min-width: 320px;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+.music-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.toast-toggle {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.toast-toggle:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.toggle-icon {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.toast-content {
+    padding: 15px;
+    max-height: 200px;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.toast-content.collapsed {
+    max-height: 0;
+    opacity: 0;
+    padding: 0 15px;
+}
+
+.toast-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-right: 30px;
+}
+
+.music-icon {
+    font-size: 20px;
+}
+
+.toast-title {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.toast-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.play-icon {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.progress-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: white;
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.volume-icon {
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.volume-slider {
+    flex: 1;
+    height: 4px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.volume-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.volume-value {
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    min-width: 35px;
+    text-align: right;
+}
+
+/* ============================================ */
 /* RESPONSIVE DESIGN - TABLET */
 /* ============================================ */
 @media (max-width: 1024px) {
@@ -1072,5 +1281,56 @@ body {
 
     .closing h2 {
         font-size: 1.6em;
+    }
+}
+/* Toast Responsive */
+@media (max-width: 768px) {
+    .music-toast {
+        min-width: 280px;
+        top: 15px;
+        right: 15px;
+    }
+    
+    .toast-content {
+        padding: 12px;
+    }
+    
+    .toast-header {
+        margin-bottom: 10px;
+    }
+    
+    .control-btn {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        min-height: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .music-toast {
+        min-width: 260px;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .toast-content {
+        padding: 10px;
+    }
+    
+    .toast-title {
+        font-size: 13px;
+    }
+    
+    .music-icon {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 380px) {
+    .music-toast {
+        min-width: 240px;
+        right: 5px;
+        left: 5px;
     }
 }
